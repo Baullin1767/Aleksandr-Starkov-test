@@ -96,7 +96,10 @@ public class UIManager : MonoBehaviour
             {
                 Button button = abilityButtons[ability];
                 button.interactable = !ability.IsOnCooldown;
-                button.GetComponentInChildren<TextMeshProUGUI>().text = $"{ability.Name} (КД: {ability.Cooldown})";
+                if (ability.IsOnCooldown)
+                    button.GetComponentInChildren<TextMeshProUGUI>().text = $"{ability.Name} (КД: {ability.currentCooldown})";
+                else
+                    button.GetComponentInChildren<TextMeshProUGUI>().text = $"{ability.Name} (КД: {ability.Cooldown})";
             }
         }
         logsText.text = GameManager.Instance.logs;

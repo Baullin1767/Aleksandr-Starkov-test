@@ -6,7 +6,7 @@ public abstract class Ability
     public int Duration { get; protected set; }
     public bool IsOnCooldown => currentCooldown > 0;
 
-    protected int currentCooldown; // Таймер перезарядки
+    public int currentCooldown; // Таймер перезарядки
 
     protected Ability(string name, int cooldown, int duration)
     {
